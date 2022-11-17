@@ -1,7 +1,7 @@
 ml_project
 ==============================
 
-homework 1
+MLOPS hw1
 
 RUN TRAIN:
 
