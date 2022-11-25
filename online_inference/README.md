@@ -20,6 +20,6 @@ docker run -p 8000:8000 aleksei_yaganov/online_inference:latest
 
 python request.py
 
-Тесты:
+Тестирование:
 
 pytest tests/test.py
