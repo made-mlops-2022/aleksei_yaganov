@@ -18,7 +18,6 @@ logger.addHandler(handler)
 
 @dataclass
 class S3ConfigParams:
-    """ Structure for config parameters """
     s3_bucket: str
     path_to_model: str
     path_to_transformer: str
@@ -40,7 +39,7 @@ def get_s3_instance():
     session = boto3.session.Session()
     return session.client(
         service_name='s3',
-        endpoint_url='https://storage.yandexcloud.net'
+        endpoint_url='http://localhost:9001'
     )
 
 

@@ -17,7 +17,7 @@ handler = logging.StreamHandler(sys.stdout)
 logger.setLevel(logging.INFO)
 logger.addHandler(handler)
 
-CONFIG_PATH = 's3_config.yaml'
+CONFIG_PATH = './s3_config.yaml'
 
 s3_bucket = None
 transformer = None
