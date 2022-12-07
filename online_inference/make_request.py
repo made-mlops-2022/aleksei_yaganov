@@ -33,9 +33,9 @@ def batch_predict(
         path_to_data: str,
         remote_model_path: str,
         output: str,
-        local_output: str = "predict.csv",
-        local_model_path: str = "model.pkl",
-        local_data_path: str = "heart_cleveland_upload.csv",
+        local_output: str = "./predicts/predict.csv",
+        local_model_path: str = "./model/model.pkl",
+        local_data_path: str = "./data/heart_cleveland_upload.csv",
 ):
     load_data(s3_bucket, remote_model_path, local_model_path)
     load_data(s3_bucket, path_to_data, local_data_path)
