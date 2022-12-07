@@ -2,10 +2,6 @@ import pandas as pd
 from fastapi.testclient import TestClient
 
 from app.main import app
-from app.prepare_data_utils import prepare_data, make_features, PredictPipelineParams
-from app.get_data_utils import get_model, get_transformer, \
-    get_config_for_prediction, read_config_params
-
 
 DATA_FOR_TEST = pd.DataFrame(data={'Age': [40, 37], 'Sex': ['M', 'M'],
                                    'ChestPainType': ['ATA', 'ATA'], 'RestingBP': [140, 130],
