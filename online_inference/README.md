@@ -14,7 +14,7 @@ docker pull skienbear/aleksei_yaganov_online_inference:latest
 ~~~
 Запуск контейнера:
 ~~~
-docker run --network=host aleksei_yaganov_online_inference:latest
+docker run -p 8000:8000 aleksei_yaganov_online_inference:latest
 ~~~
 Запуск сервиса:
 ~~~
@@ -24,3 +24,5 @@ python make_request.py
 ~~~
 pytest tests/test.py
 ~~~
+
+В качестве s3 хранилища использовал Minio для хранения данных и модели, развернутый локально.
