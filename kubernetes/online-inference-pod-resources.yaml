@@ -6,10 +6,10 @@ metadata:
     app: online-inference
 spec:
   containers:
-    - image: skienbear/online_inference:v1
+    - image: skienbear/online-inference:v1
       name: online-inference
       ports:
-        - containerPort: 8000
+        - containerPort: 80
       resources:
         requests:
           memory: "1Gi"

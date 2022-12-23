@@ -38,7 +38,7 @@ with DAG(
         image="airflow-predict",
         command=f"-l {DATA_RAW_PATH} -m {MODEL_PATH} -s {PREDICTIONS_PATH}",
         # docker_url='unix://var/run/docker.sock',
-        task_id="predict",
+        task_id="airflow-predict",
         do_xcom_push=False,
         mount_tmp_dir=False,
         mounts=[Mount(source=HOST_DIR, target="/data", type='bind')]

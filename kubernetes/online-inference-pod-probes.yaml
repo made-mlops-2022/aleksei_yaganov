@@ -6,19 +6,19 @@ metadata:
     app: online-inference
 spec:
   containers:
-    - image: skienbear/online_inference:v2
+    - image: skienbear/online-inference:v2
       name: online-inference
       ports:
-        - containerPort: 8000
+        - containerPort: 80
       readinessProbe:
         httpGet:
           path: /health
-          port: 8000
+          port: 80
         initialDelaySeconds: 30
         periodSeconds: 5
       livenessProbe:
             httpGet:
                 path: /health
-                port: 8000
+                port: 80
             initialDelaySeconds: 40
             periodSeconds: 10

@@ -37,7 +37,7 @@ with DAG(
         image="airflow-preprocess",
         command=f"-l {GENERATED_DATA_PATH} -s {DATA_PREPROCESS_PATH} -t {MODEL_PATH}",
         # docker_url='unix://var/run/docker.sock',
-        task_id="preprocess",
+        task_id="airflow-preprocess",
         do_xcom_push=False,
         mount_tmp_dir=False,
         mounts=[Mount(source=HOST_DIR, target="/data", type='bind')]

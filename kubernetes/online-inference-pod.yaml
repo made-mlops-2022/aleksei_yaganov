@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: online-inference
+  namespace: default
   labels:
     app: online-inference
 spec:
@@ -9,4 +10,4 @@ spec:
     - image: skienbear/online-inference:v1
       name: online-inference
       ports:
-        - containerPort: 8000
+        - containerPort: 80
