@@ -8,7 +8,7 @@ import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-from get_data_utils import get_model, read_config_params
+from make_request import load_object
 
 
 logger = logging.getLogger(__name__)
@@ -16,7 +16,6 @@ handler = logging.StreamHandler(sys.stdout)
 logger.setLevel(logging.INFO)
 logger.addHandler(handler)
 
-CONFIG_PATH = 's3_config.yaml'
 
 s3_bucket = None
 model = None
@@ -35,14 +34,7 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return "Hello! It is app for online inference"
-
-
-@app.on_event("startup")
-def get_config():
-    config_params = read_config_params(CONFIG_PATH)
-    os.environ['S3_BUCKET'] = config_params.s3_bucket
-    os.environ['PATH_TO_MODEL'] = config_params.path_to_model
+    return "Hello! It is entry point of your predicter"
 
 
 @app.on_event("startup")
@@ -58,14 +50,14 @@ def get_s3():
 @app.on_event("startup")
 def load_model():
     global model
-    path_to_model = os.getenv("PATH_TO_MODEL")
+    path_to_model = "model/" + os.getenv("PATH_TO_MODEL")
 
     if path_to_model is None:
         err = f"PATH_TO_MODEL {path_to_model} is None"
         logger.error(err)
         raise RuntimeError(err)
 
-    model = get_model(s3_bucket, path_to_model)
+    model = load_object(path_to_model)
 
 
 @app.get("/health")
